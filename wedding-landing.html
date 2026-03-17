@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TNKCBSMZZT"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-TNKCBSMZZT');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Wedding Suits in Utah | Essato Custom Clothing</title>
+    <meta name="description" content="Custom wedding suits for the groom, groomsmen, and father of the bride. Bespoke tailoring in Davis County, Utah. Schedule your free consultation today.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Montserrat', sans-serif; color: #2c2c2c; line-height: 1.6; overflow-x: hidden; }
+        img { max-width: 100%; display: block; }
+        a { text-decoration: none; }
+
+        /* ── Hero ── */
+        .wl-hero {
+            min-height: 100vh;
+            background: #1a2b4a url('wedding-hero-placeholder.jpg') center/cover no-repeat;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        .wl-hero-overlay {
+            position: absolute; inset: 0;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.45), rgba(0,0,0,0.72));
+        }
+        .wl-hero-inner {
+            position: relative; z-index: 2;
+            max-width: 800px; padding: 40px 24px;
+        }
+        .wl-hero-tag {
+            font-size: 0.85rem; color: #d4af37; font-weight: 600;
+            letter-spacing: 3px; text-transform: uppercase; margin-bottom: 18px;
+            opacity: 0; animation: wlFadeUp .8s ease forwards .2s;
+        }
+        .wl-hero h1 {
+            font-size: 4.2rem; color: #fff; margin-bottom: 18px; line-height: 1.15;
+            opacity: 0; animation: wlFadeUp .8s ease forwards .4s;
+        }
+        .wl-hero p.wl-hero-sub {
+            font-size: 1.25rem; color: rgba(255,255,255,.85); font-weight: 300;
+            max-width: 600px; margin: 0 auto 36px;
+            opacity: 0; animation: wlFadeUp .8s ease forwards .7s;
+        }
+        .wl-hero-cta {
+            opacity: 0; animation: wlFadeUp .8s ease forwards 1s;
+        }
+        .wl-btn {
+            display: inline-block; padding: 18px 48px;
+            font-size: .95rem; letter-spacing: 3px; text-transform: uppercase;
+            color: #fff; background: transparent; border: 2px solid #fff;
+            font-family: 'Montserrat', sans-serif; font-weight: 500;
+            cursor: pointer; transition: all .35s ease; position: relative;
+            overflow: hidden; z-index: 1;
+        }
+        .wl-btn::before {
+            content: ''; position: absolute; inset: 0;
+            background: #d4af37; transform: translateX(-100%);
+            transition: transform .4s ease; z-index: -1;
+        }
+        .wl-btn:hover { border-color: #d4af37; color: #fff; }
+        .wl-btn:hover::before { transform: translateX(0); }
+
+        .wl-btn-solid {
+            background: #1a2b4a; border-color: #1a2b4a; color: #fff;
+        }
+        .wl-btn-solid:hover { border-color: #d4af37; }
+
+        .wl-btn-gold {
+            background: #d4af37; border-color: #d4af37; color: #1a2b4a; font-weight: 600;
+        }
+        .wl-btn-gold::before { background: #1a2b4a; }
+        .wl-btn-gold:hover { color: #fff; border-color: #1a2b4a; }
+
+        /* ── Sections ── */
+        .wl-section { padding: 100px 24px; }
+        .wl-container { max-width: 1140px; margin: 0 auto; }
+        .wl-tag { font-size: .82rem; color: #d4af37; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 14px; }
+        .wl-heading { font-size: 2.6rem; color: #1a2b4a; margin-bottom: 16px; line-height: 1.2; }
+        .wl-subtext { font-size: 1.08rem; color: #555; max-width: 620px; line-height: 1.75; }
+        .wl-center { text-align: center; }
+        .wl-center .wl-subtext { margin: 0 auto; }
+
+        /* ── Why Custom Section ── */
+        .wl-why-grid {
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 70px; align-items: center; margin-top: 60px;
+        }
+        .wl-why-grid .wl-subtext { margin-bottom: 28px; }
+        .wl-img-placeholder {
+            background: #e8e8e8; border-radius: 8px; aspect-ratio: 4/5;
+            display: flex; align-items: center; justify-content: center; overflow: hidden;
+        }
+        .wl-img-placeholder-text { text-align: center; color: #999; }
+        .wl-img-placeholder-text i { font-size: 2.5rem; margin-bottom: 12px; display: block; }
+
+        /* ── Benefits Row ── */
+        .wl-benefits { background: #f7f7f7; }
+        .wl-benefits-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr);
+            gap: 36px; margin-top: 60px;
+        }
+        .wl-benefit-card {
+            background: #fff; text-align: center; padding: 44px 30px;
+            border-radius: 8px; transition: transform .3s ease, box-shadow .3s ease;
+        }
+        .wl-benefit-card:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(0,0,0,.08); }
+        .wl-benefit-icon {
+            width: 70px; height: 70px; margin: 0 auto 22px;
+            background: #1a2b4a; border-radius: 50%; display: flex;
+            align-items: center; justify-content: center;
+        }
+        .wl-benefit-icon i { color: #d4af37; font-size: 1.5rem; }
+        .wl-benefit-card h3 { font-size: 1.3rem; color: #1a2b4a; margin-bottom: 10px; }
+        .wl-benefit-card p { font-size: .95rem; color: #555; line-height: 1.7; }
+
+        /* ── Gallery ── */
+        .wl-gallery-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr);
+            gap: 18px; margin-top: 60px;
+        }
+        .wl-gallery-item {
+            background: #e0e0e0; border-radius: 6px; aspect-ratio: 3/4;
+            display: flex; align-items: center; justify-content: center;
+            overflow: hidden; transition: transform .3s; cursor: pointer;
+        }
+        .wl-gallery-item:hover { transform: scale(1.02); }
+
+        /* ── Process ── */
+        .wl-process-grid {
+            display: grid; grid-template-columns: repeat(4, 1fr);
+            gap: 36px; margin-top: 60px;
+        }
+        .wl-step { text-align: center; padding: 24px 16px; }
+        .wl-step-num {
+            width: 68px; height: 68px; background: #1a2b4a; color: #fff;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 22px; font-size: 1.5rem; font-weight: 600;
+        }
+        .wl-step h3 { font-size: 1.2rem; color: #1a2b4a; margin-bottom: 10px; }
+        .wl-step p { font-size: .92rem; color: #555; line-height: 1.7; }
+
+        /* ── Testimonials ── */
+        .wl-testimonials { background: #f7f7f7; }
+        .wl-test-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr);
+            gap: 28px; margin-top: 60px;
+        }
+        .wl-test-card {
+            background: #fff; padding: 38px; border-radius: 8px;
+            box-shadow: 0 5px 20px rgba(0,0,0,.05);
+        }
+        .wl-test-card .wl-quote { color: #d4af37; font-size: 2.5rem; line-height: 1; margin-bottom: 12px; }
+        .wl-test-card p { font-size: 1rem; line-height: 1.8; color: #2c2c2c; margin-bottom: 20px; }
+        .wl-test-author { display: flex; align-items: center; gap: 14px; }
+        .wl-test-avatar {
+            width: 48px; height: 48px; background: #e0e0e0; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .wl-test-avatar i { color: #999; font-size: 1.1rem; }
+        .wl-test-name { font-weight: 600; color: #1a2b4a; margin: 0; }
+        .wl-test-role { font-size: .82rem; color: #999; margin: 0; }
+
+        /* ── Pricing ── */
+        .wl-pricing-tiers { margin-top: 60px; }
+        .wl-tier {
+            background: #f9f9f9; border: 1px solid #e8e8e8; border-radius: 8px;
+            padding: 48px; margin-bottom: 36px;
+        }
+        .wl-tier h3 { font-size: 1.8rem; color: #1a2b4a; text-align: center; margin-bottom: 8px; }
+        .wl-tier .wl-tier-desc { text-align: center; font-size: .92rem; color: #777; margin-bottom: 32px; }
+        .wl-tier table { width: 100%; max-width: 780px; margin: 0 auto; border-collapse: collapse; }
+        .wl-tier thead tr { background: #1a2b4a; color: #fff; }
+        .wl-tier th, .wl-tier td { padding: 16px 20px; font-size: 1rem; }
+        .wl-tier th { text-align: left; }
+        .wl-tier th:not(:first-child), .wl-tier td:not(:first-child) { text-align: center; }
+        .wl-tier td { color: #2c2c2c; }
+        .wl-tier td:not(:first-child) { font-weight: 600; color: #1a2b4a; font-size: 1.15rem; }
+        .wl-tier tbody tr { border-bottom: 1px solid #e0e0e0; }
+        .wl-tier tbody tr:last-child { border-bottom: none; }
+
+        /* ── Groomsmen Banner ── */
+        .wl-groomsmen {
+            background: linear-gradient(135deg, #1a2b4a 0%, #0d1b30 100%);
+            position: relative; overflow: hidden;
+        }
+        .wl-groomsmen::before {
+            content: ''; position: absolute; inset: 0;
+            background: radial-gradient(circle at 20% 40%, rgba(212,175,55,.08) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        .wl-groomsmen .wl-container { position: relative; z-index: 2; }
+        .wl-groomsmen-grid {
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 70px; align-items: center;
+        }
+        .wl-groomsmen .wl-heading { color: #fff; }
+        .wl-groomsmen .wl-subtext { color: rgba(255,255,255,.75); }
+        .wl-groomsmen-img {
+            background: rgba(255,255,255,.08); border: 1px solid rgba(212,175,55,.2);
+            border-radius: 8px; aspect-ratio: 4/5;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .wl-groomsmen-img .wl-img-placeholder-text { color: rgba(255,255,255,.35); }
+        .wl-btn-outline-gold {
+            display: inline-block; padding: 14px 36px;
+            background: transparent; color: #d4af37; border: 2px solid #d4af37;
+            text-transform: uppercase; letter-spacing: 2px; font-size: .85rem;
+            font-weight: 500; font-family: 'Montserrat', sans-serif;
+            cursor: pointer; transition: all .3s ease;
+        }
+        .wl-btn-outline-gold:hover { background: #d4af37; color: #1a2b4a; }
+
+        /* ── Contact ── */
+        .wl-contact-grid {
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 70px; align-items: start;
+        }
+        .wl-contact-item { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 24px; }
+        .wl-contact-item i { color: #d4af37; font-size: 1.15rem; margin-top: 3px; }
+        .wl-contact-item strong { display: block; color: #1a2b4a; margin-bottom: 3px; font-size: .95rem; }
+        .wl-contact-item span, .wl-contact-item a { color: #555; font-size: .95rem; }
+        .wl-contact-item a:hover { color: #d4af37; }
+
+        .wl-form { background: #f7f7f7; padding: 42px; border-radius: 8px; }
+        .wl-form label { display: block; margin-bottom: 7px; font-size: .88rem; color: #1a2b4a; font-weight: 500; }
+        .wl-form input, .wl-form select, .wl-form textarea {
+            width: 100%; padding: 13px; border: 1px solid #ddd; border-radius: 4px;
+            font-size: 1rem; font-family: 'Montserrat', sans-serif;
+            box-sizing: border-box; margin-bottom: 18px;
+        }
+        .wl-form textarea { resize: vertical; }
+        .wl-form .wl-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+        .wl-form-submit {
+            width: 100%; padding: 17px; font-size: .95rem;
+            letter-spacing: 3px; text-transform: uppercase;
+            color: #fff; background: #1a2b4a; border: 2px solid #1a2b4a;
+            cursor: pointer; font-weight: 500; border-radius: 4px;
+            font-family: 'Montserrat', sans-serif; transition: all .35s ease;
+        }
+        .wl-form-submit:hover { background: #d4af37; border-color: #d4af37; }
+
+        /* ── Footer ── */
+        .wl-footer {
+            background: #1a2b4a; color: #fff; padding: 40px 24px;
+            text-align: center;
+        }
+        .wl-footer p { font-size: .88rem; color: #d4d4d4; margin-bottom: 14px; }
+        .wl-footer-socials a { color: #d4af37; font-size: 1.2rem; margin: 0 10px; transition: opacity .3s; }
+        .wl-footer-socials a:hover { opacity: .7; }
+
+        /* ── Animations ── */
+        @keyframes wlFadeUp {
+            from { opacity: 0; transform: translateY(28px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 1024px) {
+            .wl-benefits-grid, .wl-test-grid { grid-template-columns: repeat(2, 1fr); }
+            .wl-gallery-grid { grid-template-columns: repeat(2, 1fr); }
+            .wl-process-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 768px) {
+            .wl-hero h1 { font-size: 2.6rem; }
+            .wl-hero p.wl-hero-sub { font-size: 1.05rem; }
+            .wl-heading { font-size: 2rem; }
+            .wl-section { padding: 70px 20px; }
+
+            .wl-why-grid,
+            .wl-groomsmen-grid,
+            .wl-contact-grid { grid-template-columns: 1fr; gap: 40px; }
+
+            .wl-benefits-grid,
+            .wl-gallery-grid,
+            .wl-test-grid,
+            .wl-process-grid { grid-template-columns: 1fr; }
+
+            .wl-form .wl-form-row { grid-template-columns: 1fr; }
+            .wl-tier { padding: 28px 20px; }
+            .wl-tier th, .wl-tier td { padding: 14px 10px; font-size: .9rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ════════════════════════  HERO  ════════════════════════ -->
+    <section class="wl-hero">
+        <div class="wl-hero-overlay"></div>
+        <div class="wl-hero-inner">
+            <p class="wl-hero-tag">Custom Wedding Suits &bull; Davis County, Utah</p>
+            <h1>Look Your Best on<br>Your Big Day</h1>
+            <p class="wl-hero-sub">Custom suits for the groom, groomsmen, and father of the bride. Every detail, exactly how you want it.</p>
+            <div class="wl-hero-cta">
+                <a href="#inquiry" class="wl-btn">Schedule Your Free Consultation</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ════════════════════════  WHY CUSTOM  ════════════════════════ -->
+    <section class="wl-section">
+        <div class="wl-container">
+            <div class="wl-why-grid">
+                <div>
+                    <p class="wl-tag">Why Custom?</p>
+                    <h2 class="wl-heading">Your Wedding Deserves More Than Off-the-Rack</h2>
+                    <p class="wl-subtext" style="margin-bottom: 20px;">
+                        Your wedding day is one of the most important days of your life. You deserve a suit that fits perfectly, looks incredible in photos, and makes you feel like the best version of yourself.
+                    </p>
+                    <p class="wl-subtext" style="margin-bottom: 30px;">
+                        With Esatto, every detail is chosen by you&mdash;from the fabric and lining to the buttons and stitching. No compromises, no settling.
+                    </p>
+                    <a href="#inquiry" class="wl-btn wl-btn-solid">Get Started</a>
+                </div>
+                <div class="wl-img-placeholder">
+                    <div class="wl-img-placeholder-text">
+                        <i class="fas fa-image"></i>
+                        <p style="font-size: .88rem; letter-spacing: 1px;">Groom Photo</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ════════════════════════  BENEFITS  ════════════════════════ -->
+    <section class="wl-section wl-benefits">
+        <div class="wl-container wl-center">
+            <p class="wl-tag">The Esatto Difference</p>
+            <h2 class="wl-heading">Why Grooms Choose Esatto</h2>
+            <p class="wl-subtext">We handle every detail so you can focus on what matters most.</p>
+
+            <div class="wl-benefits-grid">
+                <div class="wl-benefit-card">
+                    <div class="wl-benefit-icon"><i class="fas fa-ruler-combined"></i></div>
+                    <h3>Perfect Fit Guaranteed</h3>
+                    <p>Every suit is built from your exact measurements. No awkward tailoring fixes&mdash;it's made for your body from the start.</p>
+                </div>
+                <div class="wl-benefit-card">
+                    <div class="wl-benefit-icon"><i class="fas fa-palette"></i></div>
+                    <h3>Total Customization</h3>
+                    <p>Choose your fabric, lining, lapel, buttons, and stitching. Your suit, your vision, down to the last detail.</p>
+                </div>
+                <div class="wl-benefit-card">
+                    <div class="wl-benefit-icon"><i class="fas fa-users"></i></div>
+                    <h3>Full Wedding Party</h3>
+                    <p>Outfit groomsmen, fathers, and ring bearers in coordinated custom looks. Group pricing available.</p>
+                </div>
+                <div class="wl-benefit-card">
+                    <div class="wl-benefit-icon"><i class="fas fa-gem"></i></div>
+                    <h3>Premium Fabrics</h3>
+                    <p>Domestic, premium, and Italian mills. Feel the difference that quality fabric makes on your wedding day.</p>
+                </div>
+                <div class="wl-benefit-card">
+                    <div class="wl-benefit-icon"><i class="fas fa-gift"></i></div>
+                    <h3>Up to 12 Ties Included</h3>
+                    <p>Every wedding package includes up to 12 custom ties for your entire party at no extra cost.</p>
+                </div>
+                <div class="wl-benefit-card">
+                    <div class="wl-benefit-icon"><i class="fas fa-heart"></i></div>
+                    <h3>Yours to Keep Forever</h3>
+                    <p>Unlike rentals, your custom suit is yours. Wear it to anniversaries, events, and beyond.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ════════════════════════  GALLERY  ════════════════════════ -->
+    <section class="wl-section">
+        <div class="wl-container wl-center">
+            <p class="wl-tag">Real Weddings</p>
+            <h2 class="wl-heading">Our Grooms</h2>
+            <p class="wl-subtext">A look at some of the custom wedding suits we've created.</p>
+
+            <div class="wl-gallery-grid">
+                <div class="wl-gallery-item"><div class="wl-img-placeholder-text"><i class="fas fa-image" style="font-size:2rem;margin-bottom:8px;display:block;"></i><p style="font-size:.78rem;">Wedding Photo 1</p></div></div>
+                <div class="wl-gallery-item"><div class="wl-img-placeholder-text"><i class="fas fa-image" style="font-size:2rem;margin-bottom:8px;display:block;"></i><p style="font-size:.78rem;">Wedding Photo 2</p></div></div>
+                <div class="wl-gallery-item"><div class="wl-img-placeholder-text"><i class="fas fa-image" style="font-size:2rem;margin-bottom:8px;display:block;"></i><p style="font-size:.78rem;">Wedding Photo 3</p></div></div>
+                <div class="wl-gallery-item"><div class="wl-img-placeholder-text"><i class="fas fa-image" style="font-size:2rem;margin-bottom:8px;display:block;"></i><p style="font-size:.78rem;">Wedding Photo 4</p></div></div>
+                <div class="wl-gallery-item"><div class="wl-img-placeholder-text"><i class="fas fa-image" style="font-size:2rem;margin-bottom:8px;display:block;"></i><p style="font-size:.78rem;">Wedding Photo 5</p></div></div>
+                <div class="wl-gallery-item"><div class="wl-img-placeholder-text"><i class="fas fa-image" style="font-size:2rem;margin-bottom:8px;display:block;"></i><p style="font-size:.78rem;">Wedding Photo 6</p></div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ════════════════════════  PROCESS  ════════════════════════ -->
+    <section class="wl-section" style="background: #fff;">
+        <div class="wl-container wl-center">
+            <p class="wl-tag">How It Works</p>
+            <h2 class="wl-heading">Our Wedding Fitting Process</h2>
+            <p class="wl-subtext">Simple, stress-free, and designed to work around your schedule.</p>
+
+            <div class="wl-process-grid">
+                <div class="wl-step">
+                    <div class="wl-step-num">1</div>
+                    <h3>Consultation</h3>
+                    <p>We discuss your wedding vision, timeline, and style preferences.</p>
+                </div>
+                <div class="wl-step">
+                    <div class="wl-step-num">2</div>
+                    <h3>Measurements</h3>
+                    <p>We take precise measurements and select fabrics and customizations together.</p>
+                </div>
+                <div class="wl-step">
+                    <div class="wl-step-num">3</div>
+                    <h3>Bespoke Fitting</h3>
+                    <p>We use fitting suits to verify measurements and ensure a perfect silhouette.</p>
+                </div>
+                <div class="wl-step">
+                    <div class="wl-step-num">4</div>
+                    <h3>Delivery</h3>
+                    <p>Your suits arrive well before the big day, ready to wear with no alterations needed.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ════════════════════════  GROOMSMEN  ════════════════════════ -->
+    <section class="wl-section wl-groomsmen">
+        <div class="wl-container">
+            <div class="wl-groomsmen-grid">
+                <div class="wl-groomsmen-img">
+                    <div class="wl-img-placeholder-text">
+                        <i class="fas fa-users" style="font-size: 3rem; margin-bottom: 14px; display: block;"></i>
+                        <p style="font-size: .88rem; letter-spacing: 1px;">Groomsmen Photo</p>
+                    </div>
+                </div>
+                <div>
+                    <p class="wl-tag">Groomsmen</p>
+                    <h2 class="wl-heading">Outfit Your Entire Wedding Party</h2>
+                    <p class="wl-subtext" style="margin-bottom: 20px;">
+                        We make outfitting your groomsmen effortless. Each groomsman gets individually measured and fitted so everyone looks sharp on the big day.
+                    </p>
+                    <p class="wl-subtext" style="margin-bottom: 30px;">
+                        Coordinate matching suits, shirts, and ties for a polished, cohesive look. Group discounts available for wedding parties.
+                    </p>
+                    <a href="#inquiry" class="wl-btn-outline-gold">Inquire About Group Pricing</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ════════════════════════  TESTIMONIALS  ════════════════════════ -->
+    <section class="wl-section wl-testimonials">
+        <div class="wl-container wl-center">
+            <p class="wl-tag">Testimonials</p>
+            <h2 class="wl-heading">What Our Grooms Say</h2>
+
+            <div class="wl-test-grid">
+                <div class="wl-test-card">
+                    <div class="wl-quote">&ldquo;</div>
+                    <p>It was great working with Brandon. The process was very easy. High quality and a great fit!</p>
+                    <div class="wl-test-author">
+                        <div class="wl-test-avatar"><i class="fas fa-user"></i></div>
+                        <div>
+                            <p class="wl-test-name">Cole W.</p>
+                            <p class="wl-test-role">Groom</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="wl-test-card">
+                    <div class="wl-quote">&ldquo;</div>
+                    <p>The absolute best customer service you can ask for. Brandon was extremely helpful and patient. The quality was really amazing!</p>
+                    <div class="wl-test-author">
+                        <div class="wl-test-avatar"><i class="fas fa-user"></i></div>
+                        <div>
+                            <p class="wl-test-name">Dakota J.</p>
+                            <p class="wl-test-role">Groom</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="wl-test-card">
+                    <div class="wl-quote">&ldquo;</div>
+                    <p style="font-style: italic;">Placeholder for another wedding testimonial. Replace this with a real review from a past groom or groomsman.</p>
+                    <div class="wl-test-author">
+                        <div class="wl-test-avatar"><i class="fas fa-user"></i></div>
+                        <div>
+                            <p class="wl-test-name">Client Name</p>
+                            <p class="wl-test-role">Groom</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ════════════════════════  PRICING  ════════════════════════ -->
+    <section class="wl-section" style="background: #fff;">
+        <div class="wl-container wl-center">
+            <p class="wl-tag">Investment</p>
+            <h2 class="wl-heading">Wedding Pricing</h2>
+            <p class="wl-subtext">All packages include 1 suit, 1 shirt, and up to 12 ties.</p>
+
+            <div class="wl-pricing-tiers">
+                <!-- Full Bespoke -->
+                <div class="wl-tier">
+                    <h3>Full Bespoke</h3>
+                    <p class="wl-tier-desc">Unlimited fittings until the fit is exactly how you want. Allow 10-12 weeks.</p>
+                    <div style="overflow-x: auto;">
+                        <table>
+                            <thead><tr><th>Package</th><th>Domestic</th><th>Italian</th></tr></thead>
+                            <tbody>
+                                <tr><td>2 Piece Suit</td><td>$1,500</td><td>$1,850</td></tr>
+                                <tr><td>3 Piece Suit</td><td>$1,750</td><td>$2,125</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Custom -->
+                <div class="wl-tier">
+                    <h3>Custom</h3>
+                    <p class="wl-tier-desc">One fitting, we pay for alterations. Allow 4-5 weeks.</p>
+                    <div style="overflow-x: auto;">
+                        <table>
+                            <thead><tr><th>Package</th><th>Domestic</th><th>Premium</th><th>Italian</th></tr></thead>
+                            <tbody>
+                                <tr><td>2 Piece Suit</td><td>$645</td><td>$800</td><td>$1,050</td></tr>
+                                <tr><td>3 Piece Suit</td><td>$715</td><td>$950</td><td>$1,275</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-top: 50px;">
+                <a href="#inquiry" class="wl-btn wl-btn-gold">Get Your Free Consultation</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ════════════════════════  FAQ  ════════════════════════ -->
+    <section class="wl-section" style="background: #f7f7f7;">
+        <div class="wl-container" style="max-width: 780px;">
+            <div class="wl-center" style="margin-bottom: 50px;">
+                <p class="wl-tag">FAQ</p>
+                <h2 class="wl-heading">Common Questions</h2>
+            </div>
+
+            <div class="wl-faq-item">
+                <div class="wl-faq-q" onclick="this.nextElementSibling.classList.toggle('open'); this.querySelector('.wl-faq-icon').textContent = this.nextElementSibling.classList.contains('open') ? '\u2212' : '+'">
+                    <h4>How far in advance should I order my wedding suit?</h4>
+                    <span class="wl-faq-icon">+</span>
+                </div>
+                <div class="wl-faq-a">
+                    <p>We recommend at least 3-4 months before your wedding for custom suits, and 4-5 months for full bespoke. This gives us plenty of time for fittings and any adjustments.</p>
+                </div>
+            </div>
+
+            <div class="wl-faq-item">
+                <div class="wl-faq-q" onclick="this.nextElementSibling.classList.toggle('open'); this.querySelector('.wl-faq-icon').textContent = this.nextElementSibling.classList.contains('open') ? '\u2212' : '+'">
+                    <h4>Can my groomsmen be measured remotely?</h4>
+                    <span class="wl-faq-icon">+</span>
+                </div>
+                <div class="wl-faq-a">
+                    <p>Yes! For out-of-town groomsmen, we have a process to get accurate measurements remotely. Contact us for details.</p>
+                </div>
+            </div>
+
+            <div class="wl-faq-item">
+                <div class="wl-faq-q" onclick="this.nextElementSibling.classList.toggle('open'); this.querySelector('.wl-faq-icon').textContent = this.nextElementSibling.classList.contains('open') ? '\u2212' : '+'">
+                    <h4>What's the difference between Custom and Full Bespoke?</h4>
+                    <span class="wl-faq-icon">+</span>
+                </div>
+                <div class="wl-faq-a">
+                    <p>Full Bespoke includes unlimited fittings until the fit is exactly how you want it and takes 10-12 weeks. Custom includes one fitting with alterations covered and takes 4-5 weeks.</p>
+                </div>
+            </div>
+
+            <div class="wl-faq-item">
+                <div class="wl-faq-q" onclick="this.nextElementSibling.classList.toggle('open'); this.querySelector('.wl-faq-icon').textContent = this.nextElementSibling.classList.contains('open') ? '\u2212' : '+'">
+                    <h4>Do you offer group discounts for wedding parties?</h4>
+                    <span class="wl-faq-icon">+</span>
+                </div>
+                <div class="wl-faq-a">
+                    <p>Yes, we offer special pricing for wedding parties. Reach out to discuss your group size and we'll put together a custom package for you.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <style>
+        .wl-faq-item { margin-bottom: 16px; background: #fff; border-radius: 8px; overflow: hidden; border: 1px solid #e8e8e8; }
+        .wl-faq-q { padding: 22px 28px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+        .wl-faq-q h4 { font-size: 1.05rem; color: #1a2b4a; font-weight: 500; margin: 0; }
+        .wl-faq-icon { font-size: 1.5rem; color: #d4af37; font-weight: 300; flex-shrink: 0; margin-left: 14px; }
+        .wl-faq-a { max-height: 0; overflow: hidden; transition: max-height .35s ease, padding .35s ease; padding: 0 28px; }
+        .wl-faq-a.open { max-height: 300px; padding: 0 28px 22px; }
+        .wl-faq-a p { font-size: .97rem; line-height: 1.7; color: #555; }
+    </style>
+
+    <!-- ════════════════════════  CONTACT / INQUIRY FORM  ════════════════════════ -->
+    <section id="inquiry" class="wl-section" style="background: #fff;">
+        <div class="wl-container">
+            <div class="wl-contact-grid">
+                <!-- Left info -->
+                <div style="padding-top: 16px;">
+                    <p class="wl-tag">Get In Touch</p>
+                    <h2 class="wl-heading">Schedule Your Wedding Consultation</h2>
+                    <p class="wl-subtext" style="margin-bottom: 36px;">
+                        Ready to start planning your perfect wedding look? Fill out the form and we'll reach out to schedule your fitting appointment.
+                    </p>
+
+                    <div class="wl-contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div><strong>Visit Us</strong><span>207 E Gordon Ave, Layton, UT 84041</span></div>
+                    </div>
+                    <div class="wl-contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div><strong>Call Us</strong><a href="tel:8017544336">(801) 754-4336</a></div>
+                    </div>
+                    <div class="wl-contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div><strong>Email Us</strong><a href="mailto:brandon@esattocustom.com">brandon@esattocustom.com</a></div>
+                    </div>
+                </div>
+
+                <!-- Right form -->
+                <div>
+                    <form id="wlContactForm" class="wl-form">
+                        <div>
+                            <label for="wl-name">Name *</label>
+                            <input type="text" id="wl-name" name="name" required>
+                        </div>
+                        <div>
+                            <label for="wl-email">Email *</label>
+                            <input type="email" id="wl-email" name="email" required>
+                        </div>
+                        <div>
+                            <label for="wl-phone">Phone *</label>
+                            <input type="tel" id="wl-phone" name="phone" required>
+                        </div>
+                        <div class="wl-form-row">
+                            <div>
+                                <label for="wl-date">Wedding Date</label>
+                                <input type="date" id="wl-date" name="wedding-date">
+                            </div>
+                            <div>
+                                <label for="wl-party">Party Size</label>
+                                <select id="wl-party" name="party-size">
+                                    <option value="">Select...</option>
+                                    <option value="1">Just the groom</option>
+                                    <option value="2-4">2-4 people</option>
+                                    <option value="5-8">5-8 people</option>
+                                    <option value="9+">9+ people</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div>
+                            <label for="wl-message">Message</label>
+                            <textarea id="wl-message" name="message" rows="4" placeholder="Tell us about your wedding vision..."></textarea>
+                        </div>
+                        <button type="submit" class="wl-form-submit">Submit</button>
+                    </form>
+
+                    <!-- Success message (hidden by default) -->
+                    <div id="wlFormSuccess" style="display:none; text-align:center; background:#f8f9fa; border:2px solid #d4af37; border-radius:8px; padding:36px; margin-top:18px; box-shadow:0 6px 20px rgba(0,0,0,.12);">
+                        <i class="fas fa-check-circle" style="color:#d4af37; font-size:3.5rem; margin-bottom:16px; display:block;"></i>
+                        <h3 style="color:#1a2b4a; font-size:1.6rem; margin-bottom:10px;">Thanks for reaching out!</h3>
+                        <p style="color:#555; font-size:1rem;">We'll be in touch soon to schedule your wedding consultation.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ════════════════════════  FOOTER  ════════════════════════ -->
+    <footer class="wl-footer">
+        <p style="font-size:1.3rem; font-weight:600; color:#fff; margin-bottom:6px;">Esatto Custom Clothing</p>
+        <p>Custom wedding suits in Davis County, Utah</p>
+        <div class="wl-footer-socials" style="margin-bottom: 18px;">
+            <a href="https://www.instagram.com/esattocustom/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com/esattocustom/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        </div>
+        <p style="font-size:.8rem;">&copy; 2026 Essato Custom Clothing. All rights reserved.</p>
+    </footer>
+
+    <!-- ════════════════════════  SCRIPTS  ════════════════════════ -->
+    <script>
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                var target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Form submission
+        document.getElementById('wlContactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            this.style.display = 'none';
+            document.getElementById('wlFormSuccess').style.display = 'block';
+        });
+    </script>
+</body>
+</html>
