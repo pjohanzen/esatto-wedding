@@ -18,13 +18,14 @@
     <style>
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Montserrat', sans-serif; color: #2c2c2c; line-height: 1.6; overflow-x: hidden; }
+        body.wl-modal-open { overflow: hidden; }
         img { max-width: 100%; display: block; }
         a { text-decoration: none; }
 
         /* ── Hero ── */
         .wl-hero {
             min-height: 100vh;
-            background: #1a2b4a url('PJ Low.jpg') 48% 26%/cover no-repeat;
+            background: #1a2b4a url('PJ Low.jpg') 48% 35%/cover no-repeat;
             position: relative;
             display: flex;
             align-items: center;
@@ -35,8 +36,8 @@
         .wl-hero-overlay {
             position: absolute; inset: 0;
             background:
-                linear-gradient(90deg, rgba(0,0,0,0.18) 0%, rgba(0,0,0,0.34) 58%, rgba(0,0,0,0.60) 100%),
-                linear-gradient(to bottom, rgba(0,0,0,0.18), rgba(0,0,0,0.46));
+                linear-gradient(90deg, rgba(0,0,0,0.12) 0%, rgba(0,0,0,0.28) 58%, rgba(0,0,0,0.52) 100%),
+                linear-gradient(to bottom, rgba(0,0,0,0.12), rgba(0,0,0,0.38));
         }
         .wl-hero-inner {
             position: relative; z-index: 2;
@@ -234,6 +235,99 @@
         }
 
         /* ── Pricing ── */
+        /* Lightbox */
+        .wl-lightbox {
+            position: fixed;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            background: rgba(0,0,0,0.82);
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: opacity .25s ease, visibility .25s ease;
+            z-index: 9999;
+        }
+        .wl-lightbox.is-open {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+        .wl-lightbox-dialog {
+            position: relative;
+            width: min(92vw, 980px);
+        }
+        .wl-lightbox-stage {
+            position: relative;
+            width: 100%;
+            background: #0e1624;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 28px 80px rgba(0,0,0,0.35);
+        }
+        .wl-lightbox-image-wrap {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            min-height: min(78vh, 760px);
+            touch-action: pan-y;
+        }
+        .wl-lightbox-image {
+            width: 100%;
+            max-width: 100%;
+            max-height: min(78vh, 760px);
+            object-fit: contain;
+        }
+        .wl-lightbox-close,
+        .wl-lightbox-nav {
+            border: none;
+            border-radius: 999px;
+            background: rgba(255,255,255,0.14);
+            color: #fff;
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background .25s ease, transform .25s ease;
+            backdrop-filter: blur(6px);
+        }
+        .wl-lightbox-close:hover,
+        .wl-lightbox-nav:hover {
+            background: rgba(212,175,55,0.92);
+            color: #1a2b4a;
+        }
+        .wl-lightbox-nav:hover {
+            transform: translateY(-50%) scale(1.04);
+        }
+        .wl-lightbox-close {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            z-index: 2;
+        }
+        .wl-lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 2;
+        }
+        #groomLightboxPrev { left: -22px; }
+        #groomLightboxNext { right: -22px; }
+        .wl-lightbox-counter {
+            position: absolute;
+            left: 50%;
+            bottom: -34px;
+            transform: translateX(-50%);
+            color: rgba(255,255,255,0.88);
+            font-size: 0.9rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
         .wl-pricing-section {
             background: #f5f5f7 !important;
             border-top: 1px solid #e5e5e7;
@@ -275,99 +369,104 @@
             font-size: 0.9rem;
         }
         .wl-pricing-layout {
-            display: grid;
-            grid-template-columns: minmax(280px, 0.9fr) minmax(0, 2fr);
-            gap: 24px;
-            align-items: stretch;
+            max-width: 920px;
+            margin: 0 auto;
+            background: linear-gradient(180deg, #fcf4df 0%, #ffffff 100%);
+            border: 2px solid #1a2b4a;
+            border-radius: 28px;
+            overflow: hidden;
+            box-shadow: 0 20px 46px rgba(15,23,42,0.08);
         }
         .wl-pricing-grid {
             display: grid;
             grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 24px;
+            gap: 0;
+            border-top: 1px solid #ece7da;
             align-items: stretch;
         }
         .wl-packages-subtitle {
-            grid-column: 1 / -1;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 2px;
-            padding: 11px 20px;
-            border-radius: 999px;
-            background: #f5f5f7;
-            border: 1px solid #d7d7db;
-            color: #6e6e73;
-            font-size: 0.92rem;
-            font-weight: 700;
-            letter-spacing: 1.9px;
-            text-transform: uppercase;
+            display: none;
         }
         .wl-package-includes {
-            background: rgba(255,255,255,0.92);
-            border: 1px solid rgba(212,175,55,0.55);
-            border-radius: 22px;
-            padding: 28px;
+            background: linear-gradient(180deg, #fcf4df 0%, #ffffff 100%);
+            border-bottom: 1px solid #ece7da;
+            padding: 46px 34px 22px;
             margin: 0;
             max-width: none;
-            box-shadow: 0 0 0 1px rgba(212,175,55,0.18), 0 20px 44px rgba(15,23,42,0.05);
-            height: 100%;
+            box-shadow: none;
             display: flex;
             flex-direction: column;
+            align-items: center;
         }
         .wl-package-includes h3 {
             color: #1a2b4a;
-            font-size: 1.2rem;
-            margin-bottom: 18px;
-            letter-spacing: 1px;
+            font-size: 1.85rem;
+            line-height: 1.2;
+            margin-bottom: 26px;
+            letter-spacing: 1.4px;
             text-transform: uppercase;
+            text-align: center;
+            padding: 18px 34px;
+            background: #fff;
+            border: 2px solid rgba(26,43,74,0.18);
+            border-radius: 22px 22px 8px 8px;
+            box-shadow: 0 8px 22px rgba(15,23,42,0.04);
         }
         .wl-package-grid {
+            width: 100%;
             display: grid;
-            grid-template-columns: 1fr;
-            gap: 14px;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 0;
+            border-top: 1px solid #ece7da;
+            border-bottom: 1px solid #ece7da;
         }
         .wl-package-item {
-            background: #fff;
-            border: 1px solid #e6e6ea;
-            border-radius: 18px;
-            padding: 14px 12px;
+            background: transparent;
+            border: none;
+            border-right: 1px solid #ece7da;
+            border-radius: 0;
+            padding: 18px 10px 16px;
             text-align: center;
             position: relative;
             overflow: hidden;
-            box-shadow: 0 10px 28px rgba(15,23,42,0.04);
+            box-shadow: none;
+        }
+        .wl-package-item:last-child {
+            border-right: none;
         }
         .wl-package-item::before {
             content: none;
         }
         .wl-package-item i {
             color: #1a2b4a;
-            font-size: 1.15rem;
+            font-size: 1rem;
             margin-bottom: 8px;
             display: block;
         }
         .wl-package-item strong {
             color: #1a2b4a;
-            font-size: 0.95rem;
+            font-size: 0.96rem;
+            line-height: 1.35;
         }
         .wl-tier {
-            background: #fff;
-            border: 1px solid #dedee3;
-            border-radius: 24px;
-            padding: 36px;
+            background: linear-gradient(180deg, #fcf4df 0%, #ffffff 100%);
+            border: none;
+            border-radius: 0;
+            padding: 34px 28px 38px;
             position: relative;
             overflow: hidden;
-            box-shadow: 0 18px 42px rgba(15,23,42,0.05);
-            height: 100%;
+            box-shadow: none;
+            min-height: 320px;
             display: flex;
             flex-direction: column;
+            justify-content: center;
         }
         .wl-tier::before {
             content: none;
         }
         .wl-tier-premium {
-            background: #fcf8ee;
-            border-color: rgba(212,175,55,0.45);
-            box-shadow: 0 24px 54px rgba(15,23,42,0.08);
+            background: linear-gradient(180deg, #fcf4df 0%, #ffffff 100%);
+            border-left: 1px solid #ece7da;
             transform: none;
         }
         .wl-tier-premium::before {
@@ -377,7 +476,7 @@
         .wl-tier-premium .wl-price-line {
             color: #b4891f;
         }
-        .wl-tier h3 { font-size: 1.8rem; color: #1a2b4a; text-align: center; margin-bottom: 14px; }
+        .wl-tier h3 { font-size: 2rem; color: #1a2b4a; text-align: center; margin-bottom: 14px; line-height: 1.25; }
         .wl-tier .wl-tier-desc {
             text-align: center;
             font-size: 0.96rem;
@@ -389,15 +488,15 @@
         .wl-price-line {
             text-align: center;
             color: #1a2b4a;
-            font-size: 2.55rem;
+            font-size: 2.65rem;
             font-weight: 700;
             line-height: 1.05;
             margin-bottom: 26px;
         }
         .wl-price-label {
             text-align: center;
-            color: #1a2b4a;
-            font-size: 1.05rem;
+            color: #6f7785;
+            font-size: 1rem;
             margin: 0 0 8px 0;
             letter-spacing: 0.2px;
         }
@@ -581,9 +680,14 @@
         @media (max-width: 1024px) {
             .wl-benefits-grid { grid-template-columns: repeat(2, 1fr); }
             .wl-gallery-grid { grid-template-columns: repeat(2, 1fr); }
-            .wl-pricing-layout { grid-template-columns: 1fr; }
             .wl-pricing-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-            .wl-package-grid { grid-template-columns: 1fr; }
+            .wl-package-includes { padding: 40px 24px 18px; }
+            .wl-package-includes h3 { font-size: 1.5rem; padding: 16px 24px; }
+            .wl-package-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+            .wl-package-item:nth-child(2n) { border-right: none; }
+            .wl-package-item:nth-child(-n + 2) { border-bottom: 1px solid #ece7da; }
+            .wl-tier { min-height: 290px; }
+            .wl-tier h3 { font-size: 1.7rem; }
             .wl-individual-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 
             .wl-groom-prev { left: 8px; }
@@ -600,15 +704,15 @@
         }
         @media (max-width: 768px) {
             .wl-hero {
-                background-position: 54% 20%;
+                background-position: 54% 28%;
                 justify-content: flex-end;
                 text-align: right;
                 padding: 0 20px;
             }
             .wl-hero-overlay {
                 background:
-                    linear-gradient(90deg, rgba(0,0,0,0.18) 0%, rgba(0,0,0,0.34) 45%, rgba(0,0,0,0.60) 100%),
-                    linear-gradient(to bottom, rgba(0,0,0,0.24), rgba(0,0,0,0.52));
+                    linear-gradient(90deg, rgba(0,0,0,0.12) 0%, rgba(0,0,0,0.28) 45%, rgba(0,0,0,0.52) 100%),
+                    linear-gradient(to bottom, rgba(0,0,0,0.18), rgba(0,0,0,0.44));
             }
             .wl-hero-inner {
                 max-width: 800px;
@@ -630,9 +734,28 @@
             .wl-form .wl-form-row { grid-template-columns: 1fr; }
             .wl-pricing-grid { grid-template-columns: 1fr; }
             .wl-tier { padding: 28px 20px; }
+            .wl-tier-premium { border-left: none; border-top: 1px solid #ece7da; }
+            .wl-tier h3 { font-size: 1.65rem; }
             .wl-price-label { font-size: 1rem; }
             .wl-price-line { font-size: 2.15rem; }
-            .wl-package-grid { grid-template-columns: 1fr; }
+            .wl-package-includes {
+                padding: 34px 16px 14px;
+            }
+            .wl-package-includes h3 {
+                width: 100%;
+                font-size: 1.2rem;
+                padding: 14px 16px;
+                margin-bottom: 18px;
+            }
+            .wl-package-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+            .wl-package-item {
+                padding: 16px 8px 14px;
+                border-right: 1px solid #ece7da;
+                border-bottom: 1px solid #ece7da;
+            }
+            .wl-package-item:nth-child(2n) { border-right: none; }
+            .wl-package-item:nth-last-child(-n + 2) { border-bottom: none; }
+            .wl-package-item strong { font-size: 0.88rem; }
             .wl-individual-grid { grid-template-columns: 1fr; }
             .wl-pricing-chip {
                 width: 100%;
@@ -644,6 +767,28 @@
                 width: 40px;
                 height: 40px;
             }
+            .wl-lightbox {
+                padding: 16px;
+            }
+            .wl-lightbox-close,
+            .wl-lightbox-nav {
+                width: 42px;
+                height: 42px;
+            }
+            .wl-lightbox-close {
+                top: -8px;
+                right: -4px;
+            }
+            .wl-lightbox-image-wrap {
+                min-height: auto;
+                padding: 14px;
+            }
+            .wl-lightbox-counter {
+                bottom: -28px;
+                font-size: 0.78rem;
+            }
+            #groomLightboxPrev { left: 8px; }
+            #groomLightboxNext { right: 8px; }
         }
     </style>
 </head>
@@ -893,10 +1038,10 @@
                     <div class="wl-package-includes">
                         <h3>Every Wedding Package Includes</h3>
                         <div class="wl-package-grid">
-                            <div class="wl-package-item"><i class="fas fa-user-tie"></i><strong>1 Custom Suit</strong></div>
-                            <div class="wl-package-item"><i class="fas fa-ribbon"></i><strong>Up to 12 Ties</strong></div>
-                            <div class="wl-package-item"><i class="fas fa-shirt"></i><strong>1 Custom Shirt</strong></div>
                             <div class="wl-package-item"><i class="fas fa-shoe-prints"></i><strong>1 Pair Dress Shoes</strong></div>
+                            <div class="wl-package-item"><i class="fas fa-shirt"></i><strong>1 Custom Shirt</strong></div>
+                            <div class="wl-package-item"><i class="fas fa-ribbon"></i><strong>Up to 12 Ties</strong></div>
+                            <div class="wl-package-item"><i class="fas fa-user-tie"></i><strong>1 Custom Suit</strong></div>
                         </div>
                     </div>
 
@@ -906,16 +1051,12 @@
                         <h3>Custom Made-to-Measure</h3>
                         <p class="wl-price-label">Custom Suits Starting At</p>
                         <div class="wl-price-line">$485</div>
-                        <p class="wl-price-label">Tailored Shirts Starting At</p>
-                        <div class="wl-price-line">$59</div>
                         </div>
 
                         <div class="wl-tier wl-tier-premium">
                         <h3>Premium Bespoke</h3>
                         <p class="wl-price-label">Bespoke Suits Starting At</p>
                         <div class="wl-price-line">$1,490</div>
-                        <p class="wl-price-label">Premium Shirts Starting At</p>
-                        <div class="wl-price-line">$129</div>
                         </div>
                     </div>
                 </div>
@@ -1097,6 +1238,26 @@
         <p style="font-size:.8rem;">&copy; 2026 Essato Custom Clothing. All rights reserved.</p>
     </footer>
 
+    <div id="groomLightbox" class="wl-lightbox" aria-hidden="true">
+        <div class="wl-lightbox-dialog" role="dialog" aria-modal="true" aria-label="Groom photo viewer">
+            <button type="button" id="groomLightboxPrev" class="wl-lightbox-nav" aria-label="Previous groom photo">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <div class="wl-lightbox-stage">
+                <button type="button" id="groomLightboxClose" class="wl-lightbox-close" aria-label="Close photo viewer">
+                    <i class="fas fa-times"></i>
+                </button>
+                <div id="groomLightboxViewport" class="wl-lightbox-image-wrap">
+                    <img id="groomLightboxImage" class="wl-lightbox-image" src="" alt="">
+                </div>
+            </div>
+            <button type="button" id="groomLightboxNext" class="wl-lightbox-nav" aria-label="Next groom photo">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+            <div id="groomLightboxCounter" class="wl-lightbox-counter">1 / 1</div>
+        </div>
+    </div>
+
     <!-- ════════════════════════  SCRIPTS  ════════════════════════ -->
     <script>
         (function() {
@@ -1234,11 +1395,24 @@
             var groomDots = document.getElementById('groomCarouselDots');
             if (!groomTrack || !groomViewport || !groomDots) return;
             var groomCarousel = groomViewport.closest('.wl-groom-carousel') || groomViewport;
+            var groomSection = groomCarousel.closest('.wl-section') || groomCarousel;
 
             var groomSlides = groomTrack.querySelectorAll('.wl-groom-slide');
             var groomGap = 18;
             var groomInterval;
             var GROOM_AUTOPLAY_MS = 3500;
+            var groomInView = false;
+            var groomHovered = false;
+            var groomSuppressClick = false;
+            var groomLightbox = document.getElementById('groomLightbox');
+            var groomLightboxImage = document.getElementById('groomLightboxImage');
+            var groomLightboxCounter = document.getElementById('groomLightboxCounter');
+            var groomLightboxViewport = document.getElementById('groomLightboxViewport');
+            var groomLightboxClose = document.getElementById('groomLightboxClose');
+            var groomLightboxPrev = document.getElementById('groomLightboxPrev');
+            var groomLightboxNext = document.getElementById('groomLightboxNext');
+            var groomLightboxIndex = 0;
+            var groomLightboxOpen = false;
 
             function getGroomVisibleCount() {
                 if (window.innerWidth <= 600) return 1;
@@ -1291,21 +1465,11 @@
                 updateGroomDots();
             }
 
-            window.moveGroomCarousel = function(direction) {
-                var maxIndex = Math.max(0, groomSlides.length - getGroomVisibleCount());
-                groomIndex += direction;
-                if (groomIndex < 0) groomIndex = 0;
-                if (groomIndex > maxIndex) groomIndex = maxIndex;
-                updateGroomCarousel();
-                startGroomAutoScroll();
-            };
-
-            function goToGroomSlide(dotIndex) {
-                var maxIndex = Math.max(0, groomSlides.length - getGroomVisibleCount());
-                groomIndex = dotIndex;
-                if (groomIndex > maxIndex) groomIndex = maxIndex;
-                updateGroomCarousel();
-                startGroomAutoScroll();
+            function stopGroomAutoScroll() {
+                if (groomInterval) {
+                    clearInterval(groomInterval);
+                    groomInterval = null;
+                }
             }
 
             function startGroomAutoScroll() {
@@ -1314,18 +1478,74 @@
                 groomInterval = setInterval(function() {
                     var maxIndex = Math.max(0, groomSlides.length - getGroomVisibleCount());
                     if (groomIndex >= maxIndex) groomIndex = 0;
-                    else {
-                        groomIndex += 1;
-                    }
+                    else groomIndex += 1;
                     updateGroomCarousel();
                 }, GROOM_AUTOPLAY_MS);
             }
 
-            function stopGroomAutoScroll() {
-                if (groomInterval) {
-                    clearInterval(groomInterval);
-                    groomInterval = null;
+            function syncGroomAutoScroll() {
+                if (document.hidden || groomHovered || !groomInView || groomLightboxOpen) {
+                    stopGroomAutoScroll();
+                    return;
                 }
+                startGroomAutoScroll();
+            }
+
+            window.moveGroomCarousel = function(direction) {
+                var maxIndex = Math.max(0, groomSlides.length - getGroomVisibleCount());
+                groomIndex += direction;
+                if (groomIndex < 0) groomIndex = 0;
+                if (groomIndex > maxIndex) groomIndex = maxIndex;
+                updateGroomCarousel();
+                syncGroomAutoScroll();
+            };
+
+            function goToGroomSlide(dotIndex) {
+                var maxIndex = Math.max(0, groomSlides.length - getGroomVisibleCount());
+                groomIndex = dotIndex;
+                if (groomIndex > maxIndex) groomIndex = maxIndex;
+                updateGroomCarousel();
+                syncGroomAutoScroll();
+            }
+
+            function updateGroomLightboxImage() {
+                if (!groomLightboxImage || !groomSlides.length) return;
+                var activeImage = groomSlides[groomLightboxIndex].querySelector('img');
+                if (!activeImage) return;
+                groomLightboxImage.src = activeImage.getAttribute('src') || '';
+                groomLightboxImage.alt = activeImage.getAttribute('alt') || 'Groom in custom wedding suit';
+                if (groomLightboxCounter) {
+                    groomLightboxCounter.textContent = (groomLightboxIndex + 1) + ' / ' + groomSlides.length;
+                }
+            }
+
+            function stepGroomLightbox(direction) {
+                if (!groomSlides.length) return;
+                groomLightboxIndex += direction;
+                if (groomLightboxIndex < 0) groomLightboxIndex = groomSlides.length - 1;
+                if (groomLightboxIndex >= groomSlides.length) groomLightboxIndex = 0;
+                updateGroomLightboxImage();
+            }
+
+            function openGroomLightbox(index) {
+                if (!groomLightbox || !groomLightboxImage) return;
+                groomLightboxIndex = index;
+                groomLightboxOpen = true;
+                groomLightbox.classList.add('is-open');
+                groomLightbox.setAttribute('aria-hidden', 'false');
+                document.body.classList.add('wl-modal-open');
+                updateGroomLightboxImage();
+                stopGroomAutoScroll();
+                if (groomLightboxClose) groomLightboxClose.focus();
+            }
+
+            function closeGroomLightbox() {
+                if (!groomLightbox) return;
+                groomLightboxOpen = false;
+                groomLightbox.classList.remove('is-open');
+                groomLightbox.setAttribute('aria-hidden', 'true');
+                document.body.classList.remove('wl-modal-open');
+                syncGroomAutoScroll();
             }
 
             window.addEventListener('resize', function() {
@@ -1333,12 +1553,11 @@
                 if (groomIndex > maxIndex) groomIndex = maxIndex;
                 buildGroomDots();
                 updateGroomCarousel();
-                startGroomAutoScroll();
+                syncGroomAutoScroll();
             });
 
             document.addEventListener('visibilitychange', function() {
-                if (document.hidden) stopGroomAutoScroll();
-                else startGroomAutoScroll();
+                syncGroomAutoScroll();
             });
 
             var groomTouchStartX = 0;
@@ -1346,6 +1565,7 @@
             var groomSwiping = false;
             groomViewport.addEventListener('touchstart', function(e) {
                 groomTouchStartX = e.changedTouches[0].screenX;
+                groomTouchEndX = groomTouchStartX;
                 groomSwiping = true;
                 stopGroomAutoScroll();
             }, { passive: true });
@@ -1357,21 +1577,106 @@
                 groomSwiping = false;
                 var diff = groomTouchStartX - groomTouchEndX;
                 if (Math.abs(diff) > 50) {
+                    groomSuppressClick = true;
                     if (diff > 0) moveGroomCarousel(1);
                     else moveGroomCarousel(-1);
+                    setTimeout(function() {
+                        groomSuppressClick = false;
+                    }, 350);
                 }
-                startGroomAutoScroll();
+                syncGroomAutoScroll();
             });
 
-            groomCarousel.addEventListener('mouseenter', stopGroomAutoScroll);
-            groomCarousel.addEventListener('mouseleave', function() {
+            groomCarousel.addEventListener('mouseenter', function() {
+                groomHovered = true;
                 stopGroomAutoScroll();
-                startGroomAutoScroll();
+            });
+            groomCarousel.addEventListener('mouseleave', function() {
+                groomHovered = false;
+                syncGroomAutoScroll();
+            });
+
+            if ('IntersectionObserver' in window) {
+                var groomObserver = new IntersectionObserver(function(entries) {
+                    groomInView = entries.some(function(entry) {
+                        return entry.isIntersecting;
+                    });
+                    syncGroomAutoScroll();
+                }, {
+                    threshold: 0.35
+                });
+                groomObserver.observe(groomSection);
+            } else {
+                groomInView = true;
+            }
+
+            for (var slideIndex = 0; slideIndex < groomSlides.length; slideIndex++) {
+                (function(index) {
+                    var slide = groomSlides[index];
+                    slide.setAttribute('role', 'button');
+                    slide.setAttribute('tabindex', '0');
+                    slide.setAttribute('aria-label', 'Open groom photo ' + (index + 1) + ' of ' + groomSlides.length);
+                    slide.addEventListener('click', function() {
+                        if (groomSuppressClick) return;
+                        openGroomLightbox(index);
+                    });
+                    slide.addEventListener('keydown', function(e) {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            openGroomLightbox(index);
+                        }
+                    });
+                })(slideIndex);
+            }
+
+            if (groomLightboxPrev) {
+                groomLightboxPrev.addEventListener('click', function() {
+                    stepGroomLightbox(-1);
+                });
+            }
+            if (groomLightboxNext) {
+                groomLightboxNext.addEventListener('click', function() {
+                    stepGroomLightbox(1);
+                });
+            }
+            if (groomLightboxClose) {
+                groomLightboxClose.addEventListener('click', closeGroomLightbox);
+            }
+            if (groomLightbox) {
+                groomLightbox.addEventListener('click', function(e) {
+                    if (e.target === groomLightbox) closeGroomLightbox();
+                });
+            }
+
+            var groomModalTouchStartX = 0;
+            var groomModalTouchEndX = 0;
+            if (groomLightboxViewport) {
+                groomLightboxViewport.addEventListener('touchstart', function(e) {
+                    groomModalTouchStartX = e.changedTouches[0].screenX;
+                    groomModalTouchEndX = groomModalTouchStartX;
+                }, { passive: true });
+                groomLightboxViewport.addEventListener('touchmove', function(e) {
+                    groomModalTouchEndX = e.changedTouches[0].screenX;
+                }, { passive: true });
+                groomLightboxViewport.addEventListener('touchend', function() {
+                    var diff = groomModalTouchStartX - groomModalTouchEndX;
+                    if (Math.abs(diff) > 50) {
+                        if (diff > 0) stepGroomLightbox(1);
+                        else stepGroomLightbox(-1);
+                    }
+                });
+            }
+
+            document.addEventListener('keydown', function(e) {
+                if (!groomLightboxOpen) return;
+                if (e.key === 'Escape') closeGroomLightbox();
+                if (e.key === 'ArrowLeft') stepGroomLightbox(-1);
+                if (e.key === 'ArrowRight') stepGroomLightbox(1);
             });
 
             buildGroomDots();
             updateGroomCarousel();
-            startGroomAutoScroll();
+            syncGroomAutoScroll();
         })();
 
         // Smooth scroll for anchor links
